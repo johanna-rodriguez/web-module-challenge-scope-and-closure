@@ -9,7 +9,21 @@ The module challenge is the afternoon project or assignment that students work t
 ## Objectives
 
 - Explain function scope
+
+
+When you declare a variable in a function, you can access this variable only within the function. You can’t get this variable once you get out of it.
+
+
+
 - Describe what closure is, how closure is created in a program and why it is important to understand closures in JavaScript  
+
+
+A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). In other words, a closure gives you access to an outer function’s scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.
+To use a closure, define a function inside another function and expose it. To expose a function, return it or pass it to another function.
+The inner function will have access to the variables in the outer function scope, even after the outer function has returned.
+A closure happens when a function reaches into its outer scope to grab a variable that's been defined elsewhere.
+Closures are important because they control what is and isn’t in scope in a particular function, along with which variables are shared between sibling functions in the same containing scope. Understanding how variables and functions relate to each other is critical to understanding what’s going on in your code, in both functional and object oriented programming styles.
+
 
 ## Introduction
 
@@ -43,7 +57,15 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+A closure is a function that is free of variables, this means that the variables of the parent function work, but the closure does not have its own variables.
+and a closure is when a function is able to remember and access a lexical scope, even when the function is executed outside the lexical scope.
+
+
+
 2. Study the following code, then answer the questions below.
+
+
 
 ```js
 function personalDice(name){
@@ -64,8 +86,18 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+The closure is use from line 72 to line 76 because in JavaScript, closures are created every time a function is created, at function creation time and you have access to the argument value of the parent function.
+
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+The name will be always the same but the roll is going to change.
+
+
 c. What is the lexical scope of `newRoll`? 
+
+The lexical scope is only withing the inner function.
 
 
 ### Task 3 - Stretch Goals

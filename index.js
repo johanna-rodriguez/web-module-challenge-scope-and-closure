@@ -28,11 +28,15 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+  On counter1, the count variable will be only available within the function and the inner function, and on counter2 the count variable will be accesible from anywhere within the .js file.
+
   2. Which of the two uses a closure? How can you tell?
-  
+  counter1, because have a function within a function.
+
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     When We want to limit the scope of the variable to be available only to the functions inside the parent function because We dont want to have it as a global variable.
+     When We need the variable to be global.
 */
 
 // counter1 code
@@ -62,8 +66,8 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+  return Math.floor(Math.random() * 3);
 }
 
 
@@ -81,9 +85,16 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(callback,number){
+  let score = {"Home":0,"Away": 0}
+  for(let i=0;i<number;i++){
+    score.Home = score.Home + callback()
+    score.Away = score.Away + callback()
+  }
+  return score
 }
+console.log(finalScore(inning, 9))
+
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
